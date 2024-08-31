@@ -7,11 +7,14 @@ export interface SelectionUIConnectorT {
 
 export type PropsT = {
   selection: Selection;
-  onSelect?: (selectionParams: {
-    itemId: string | undefined;
-    isShift?: boolean;
-    isCtrl?: boolean;
-  }) => void;
+  onSelect?: (
+    selectionParams: {
+      itemId: string | undefined;
+      isShift?: boolean;
+      isCtrl?: boolean;
+    },
+    mouseEvent?: any
+  ) => void;
 };
 
 export class SelectionUIConnector implements SelectionUIConnectorT {
@@ -36,7 +39,7 @@ export class SelectionUIConnector implements SelectionUIConnectorT {
     };
     this.props.selection.selectItem(selectionParams);
     if (this.props.onSelect) {
-      this.props.onSelect(selectionParams);
+      this.props.onSelect(selectionParams, e);
     }
   }
 
