@@ -3,18 +3,10 @@ import { data, operation } from 'skandha';
 import { selectionIsInsertedOnDragAndDrop } from '../policies/selectionIsInsertedOnDragAndDrop';
 import { HoverPositionT } from './Hovering';
 
-export const defaultCallbackMap = (dragAndDrop: DragAndDrop) => ({
-  drop: {
-    drop: function (this: Cbs<DragAndDrop['drop']>) {
-      selectionIsInsertedOnDragAndDrop(dragAndDrop, this.args.hoverPosition);
-    },
-  },
-});
-
 export class DragAndDrop {
   static className = () => 'DragAndDrop';
 
-  callbackMap_ = {} as CallbackMap<{
+  callbackMap_ = defaultCallbackMap(this) as CallbackMap<{
     drop?: {
       drop?: () => void;
     };
@@ -47,3 +39,11 @@ export class DragAndDrop {
     });
   }
 }
+
+export const defaultCallbackMap = (dragAndDrop: DragAndDrop) => ({
+  drop: {
+    drop: function (this: Cbs<DragAndDrop['drop']>) {
+      selectionIsInsertedOnDragAndDrop(dragAndDrop, this.args.hoverPosition);
+    },
+  },
+});

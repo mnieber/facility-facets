@@ -5,7 +5,7 @@ import { range } from '../internal/utils';
 export class Selection<T = any> {
   static className = () => 'Selection';
 
-  callbackMap_ = {} as CallbackMap<{
+  callbackMap_ = defaultCallbackMap(this) as CallbackMap<{
     selectItem?: {
       selectItem: () => void;
     };
