@@ -1,5 +1,5 @@
 import { withCbs, type CallbackMap } from 'aspiration';
-import { data, operation } from 'skandha';
+import { data, operation, operationExt } from 'skandha';
 
 export class Deletion {
   static className = () => 'Deletion';
@@ -12,7 +12,7 @@ export class Deletion {
 
   @data isDeleting: boolean = false;
 
-  @operation({ log: false }) setIsDeleting(isDeleting: boolean) {
+  @operationExt({ log: false }) setIsDeleting(isDeleting: boolean) {
     this.isDeleting = isDeleting;
   }
 

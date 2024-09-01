@@ -1,5 +1,5 @@
 import { CallbackMap, withCbs } from 'aspiration';
-import { data, operation } from 'skandha';
+import { data, operation, operationExt } from 'skandha';
 
 export class Edit {
   static className = () => 'Edit';
@@ -23,7 +23,7 @@ export class Edit {
     this.isEditing = false;
   }
 
-  @operation({ log: false }) setIsSaving(isSaving: boolean) {
+  @operationExt({ log: false }) setIsSaving(isSaving: boolean) {
     this.isSaving = isSaving;
   }
 

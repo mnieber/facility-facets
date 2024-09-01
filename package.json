@@ -13,6 +13,6 @@
     "aspiration": ">=0.6.0"
   },
   "devDependencies": {
-    "typescript": "^4.0.3"
+    "typescript": "^5.0.0"
   }
 }

@@ -1,5 +1,5 @@
 import { mergeDeepLeft, withCbs, type CallbackMap, type Cbs } from 'aspiration';
-import { data, operation } from 'skandha';
+import { data, operation, operationExt } from 'skandha';
 import { selectionIsInsertedOnDragAndDrop } from '../policies/selectionIsInsertedOnDragAndDrop';
 import { HoverPositionT } from './Hovering';
 
@@ -22,7 +22,7 @@ export class DragAndDrop {
 
   @data isDropping: boolean = false;
 
-  @operation({ log: false }) setIsDropping(isDropping: boolean) {
+  @operationExt({ log: false }) setIsDropping(isDropping: boolean) {
     this.isDropping = isDropping;
   }
 

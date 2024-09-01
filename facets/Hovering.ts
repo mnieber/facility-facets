@@ -1,4 +1,4 @@
-import { data, operation } from 'skandha';
+import { data, operationExt } from 'skandha';
 
 export type HoverPositionT = {
   isBefore: boolean;
@@ -11,7 +11,9 @@ export class Hovering {
 
   @data hoverPosition?: HoverPositionT;
 
-  @operation({ log: false }) setHoverPosition(hoverPosition?: HoverPositionT) {
+  @operationExt({ log: false }) setHoverPosition(
+    hoverPosition?: HoverPositionT
+  ) {
     this.hoverPosition = hoverPosition;
   }
 }

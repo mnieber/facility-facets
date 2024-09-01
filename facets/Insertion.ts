@@ -1,5 +1,5 @@
 import { withCbs, type CallbackMap } from 'aspiration';
-import { data, input, operation, output, stub } from 'skandha';
+import { data, input, operation, operationExt, output, stub } from 'skandha';
 import { getPreview } from '../lib/getPreview';
 import { HoverPositionT } from './Hovering';
 
@@ -18,7 +18,7 @@ export class Insertion<T = any> {
   @input inputItems: Array<T> = stub;
   @output preview: Array<T> = stub;
 
-  @operation({ log: false }) setIsInserting(isInserting: boolean) {
+  @operationExt({ log: false }) setIsInserting(isInserting: boolean) {
     this.isInserting = isInserting;
   }
 

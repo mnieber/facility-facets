@@ -1,5 +1,5 @@
 import { CallbackMap, withCbs } from 'aspiration';
-import { data, operation } from 'skandha';
+import { data, operation, operationExt } from 'skandha';
 
 export type GenericObjectT = any;
 
@@ -23,11 +23,11 @@ export class Addition<T = any> {
   @data item?: T;
   @data parentId?: string;
 
-  @operation({ log: false }) setParentId(parentId?: string) {
+  @operationExt({ log: false }) setParentId(parentId?: string) {
     this.parentId = parentId;
   }
 
-  @operation({ log: false }) setItem(item?: T) {
+  @operationExt({ log: false }) setItem(item?: T) {
     this.item = item;
   }
 
@@ -63,7 +63,7 @@ export class Addition<T = any> {
     });
   }
 
-  @operation({ log: false }) _reset() {
+  @operationExt({ log: false }) _reset() {
     this.setItem(undefined);
     this.setParentId(undefined);
   }
